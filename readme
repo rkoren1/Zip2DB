@@ -1,0 +1,7 @@
+SLO:
+
+Program ekstrahira zip datoteko, prebere njeno vsebino in jo zapiše v sqlite podatkovno bazo. Po koncu izvajanja tudi pobriše obe datoteki.
+
+ENG:
+
+This program extracts the zip file, reads txt file contents and writes it to the sqlite database. After program finishes, it also cleans up both files.
