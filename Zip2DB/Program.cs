@@ -6,13 +6,24 @@ using DownloadZIP.Data;
 
 
 string zipFilePath = "zavezanci.zip";
-WebClient webClient = new WebClient();
+
 
 //downloads the zip file and extracts it into zip folder
-webClient.DownloadFile(new Uri("http://datoteke.durs.gov.si/DURS_zavezanci_PO.zip"), zipFilePath);
+using (HttpClient client = new HttpClient())
+{
+    using (HttpResponseMessage response = await client.GetAsync("http://datoteke.durs.gov.si/DURS_zavezanci_PO.zip"))
+    {
+        using (var stream = await response.Content.ReadAsStreamAsync())
+        {
+            using (Stream zip = File.OpenWrite(zipFilePath))
+            {
+                stream.CopyTo(zip);
+            }
+        }
+    }
+}
 ZipFile.ExtractToDirectory(zipFilePath, @"../../../zip");
 File.Delete("./" + zipFilePath);
-
 //reads txt
 var fileReading = File.ReadAllText(@"../../../zip/DURS_zavezanci_PO.txt");
 
