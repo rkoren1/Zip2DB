@@ -33,7 +33,7 @@ var lines = fileReading.Split("\n");
 List<Zavezanec> zavezanci = new List<Zavezanec>();
 Zavezanec lineToObject;
 
-//saves data from txt file into zavezanci array of objects
+//saves data from txt file into zavezanci list of objects
 var id = 1;
 foreach (var line in lines)
 {
