@@ -1,6 +1,4 @@
-﻿
-using DownloadZIP;
-using DownloadZIP.Data;
+﻿using DownloadZIP.Data;
 using System.IO.Compression;
 using System.Text.Encodings.Web;
 using System.Text.Json;
@@ -27,22 +25,22 @@ File.Delete("./" + zipFile);
 //reads txt
 var fileReading = File.ReadAllText(@"../zip/DURS_zavezanci_PO.txt");
 
-//splits txt file by lines
-var lines = fileReading.Split("\n");
+//splits txt file by rows
+var rows = fileReading.Split("\n");
 
-List<Zavezanec> zavezanci = new();
-Zavezanec lineToZavezanec;
+List<ZavezanecEntity> zavezanci = new();
+ZavezanecEntity rowToZavezanec;
 
 //saves data from txt file into zavezanci list of objects
 var id = 1;
-foreach (var line in lines)
+foreach (var row in rows)
 {
-    if (line != "")
+    if (row != "")
     {
-        lineToZavezanec = new Zavezanec(id: id, ureditev: line.Substring(0)[0], zavezanostZaDDV: line.Substring(2)[0], davcna: line.Substring(4, 8), maticna: line.Substring(13, 10),
-            datumRegistracije: line.Substring(24, 10), sifraDejavnosti: line.Substring(35, 6), imeZavezanca: line.Substring(42, 100),
-            naslov: line.Substring(143, 113), financniUrad: line.Substring(257, 2));
-        zavezanci.Add(lineToZavezanec);
+        rowToZavezanec = new ZavezanecEntity(id: id, ureditev: row.Substring(0)[0], zavezanostZaDDV: row.Substring(2)[0], davcna: row.Substring(4, 8), maticna: row.Substring(13, 10),
+            datumRegistracije: row.Substring(24, 10), sifraDejavnosti: row.Substring(35, 6), imeZavezanca: row.Substring(42, 100),
+            naslov: row.Substring(143, 113), financniUrad: row.Substring(257, 2));
+        zavezanci.Add(rowToZavezanec);
         id++;
     }
 }
@@ -56,19 +54,7 @@ using (var database = new ZavezanciContext())
     Console.WriteLine("Zapisujem v bazo.");
     zavezanci.ForEach(element =>
     {
-        database.Add(new ZavezanecEntity()
-        {
-            Id = element.Id,
-            Ureditev = element.Ureditev,
-            ZavezanostZaDDV = element.ZavezanostZaDDV,
-            Davcna = element.Davcna,
-            Maticna = element.Maticna,
-            DatumRegistracije = element.DatumRegistracije,
-            SifraDejavnosti = element.SifraDejavnosti,
-            ImeZavezanca = element.ImeZavezanca,
-            Naslov = element.Naslov,
-            FinancniUrad = element.FinancniUrad,
-        });
+        database.Add(element);
     });
 
     try

@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Zip2DB.Migrations
 {
     [DbContext(typeof(ZavezanciContext))]
-    [Migration("20230806141559_InitialCreate")]
+    [Migration("20230806150938_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
