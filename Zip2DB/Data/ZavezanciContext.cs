@@ -1,9 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DownloadZIP.Data
 {
@@ -12,8 +7,8 @@ namespace DownloadZIP.Data
         public virtual DbSet<ZavezanecEntity> Zavezanci { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder dbContextOptionsBuilder)
         {
-            dbContextOptionsBuilder.UseSqlite("Data Source=zavezanci.db");
+            dbContextOptionsBuilder.UseSqlite("Data Source=davcni_zavezanci.db");
         }
-        
+
     }
 }

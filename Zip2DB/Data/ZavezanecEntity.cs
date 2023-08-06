@@ -4,13 +4,14 @@
     internal class ZavezanecEntity
     {
         public int Id { get; set; }
-        public string Status { get; set; }
-        public string Number1 { get; set; }
-        public string Number2 { get; set; }
-        public DateTime Date { get; set; }
-        public decimal Amount { get; set; }
-        public string CompanyName { get; set; }
-        public string Address { get; set; }
-        public int Rating { get; set; }
+        public char Ureditev { get; set; }
+        public char ZavezanostZaDDV { get; set; }
+        public string Davcna { get; set; }
+        public string Maticna { get; set; }
+        public DateTime DatumRegistracije { get; set; }
+        public string SifraDejavnosti { get; set; }
+        public string ImeZavezanca { get; set; }
+        public string Naslov { get; set; }
+        public string FinancniUrad { get; set; }
     }
 }

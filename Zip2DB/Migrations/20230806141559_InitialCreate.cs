@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace DownloadZIP.Migrations
+namespace Zip2DB.Migrations
 {
     public partial class InitialCreate : Migration
     {
@@ -15,14 +15,15 @@ namespace DownloadZIP.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Status = table.Column<string>(type: "TEXT", nullable: false),
-                    Number1 = table.Column<string>(type: "TEXT", nullable: false),
-                    Number2 = table.Column<string>(type: "TEXT", nullable: false),
-                    Date = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    Amount = table.Column<decimal>(type: "TEXT", nullable: false),
-                    CompanyName = table.Column<string>(type: "TEXT", nullable: false),
-                    Address = table.Column<string>(type: "TEXT", nullable: false),
-                    Rating = table.Column<int>(type: "INTEGER", nullable: false)
+                    Ureditev = table.Column<char>(type: "TEXT", nullable: false),
+                    ZavezanostZaDDV = table.Column<char>(type: "TEXT", nullable: false),
+                    Davcna = table.Column<string>(type: "TEXT", nullable: false),
+                    Maticna = table.Column<string>(type: "TEXT", nullable: false),
+                    DatumRegistracije = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    SifraDejavnosti = table.Column<string>(type: "TEXT", nullable: false),
+                    ImeZavezanca = table.Column<string>(type: "TEXT", nullable: false),
+                    Naslov = table.Column<string>(type: "TEXT", nullable: false),
+                    FinancniUrad = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {

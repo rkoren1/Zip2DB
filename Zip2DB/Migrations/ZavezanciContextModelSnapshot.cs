@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace DownloadZIP.Migrations
+namespace Zip2DB.Migrations
 {
     [DbContext(typeof(ZavezanciContext))]
     partial class ZavezanciContextModelSnapshot : ModelSnapshot
@@ -17,39 +17,43 @@ namespace DownloadZIP.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.9");
 
-            modelBuilder.Entity("DownloadZIP.Data.ZavezancEntity", b =>
+            modelBuilder.Entity("DownloadZIP.Data.ZavezanecEntity", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Address")
+                    b.Property<DateTime>("DatumRegistracije")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Davcna")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<decimal>("Amount")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("CompanyName")
+                    b.Property<string>("FinancniUrad")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Number1")
+                    b.Property<string>("ImeZavezanca")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Number2")
+                    b.Property<string>("Maticna")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("Rating")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Status")
+                    b.Property<string>("Naslov")
                         .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("SifraDejavnosti")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<char>("Ureditev")
+                        .HasColumnType("TEXT");
+
+                    b.Property<char>("ZavezanostZaDDV")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
