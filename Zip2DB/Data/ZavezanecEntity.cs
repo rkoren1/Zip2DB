@@ -24,13 +24,13 @@
             Id = id;
             Ureditev = ureditev;
             ZavezanostZaDDV = zavezanostZaDDV;
-            Davcna = TransformString(davcna);
-            Maticna = TransformString(maticna);
-            var dateInString = TransformString(datumRegistracije);
-            SifraDejavnosti = TransformString(sifraDejavnosti);
-            ImeZavezanca = TransformString(imeZavezanca);
-            Naslov = TransformString(naslov);
-            FinancniUrad = TransformString(financniUrad);
+            Davcna = TrimString(davcna);
+            Maticna = TrimString(maticna);
+            var dateInString = TrimString(datumRegistracije);
+            SifraDejavnosti = TrimString(sifraDejavnosti);
+            ImeZavezanca = TrimString(imeZavezanca);
+            Naslov = TrimString(naslov);
+            FinancniUrad = TrimString(financniUrad);
             if (DateTime.TryParse(dateInString, out DateTime nDate))
             {
                 DatumRegistracije = nDate;
@@ -38,12 +38,9 @@
 
         }
 
-        public string TransformString(string str)
+        public string TrimString(string str)
         {
-            var trim = str.TrimStart().TrimEnd();
-            var split = trim.Split(" ");
-            var newString = String.Join(" ", split);
-            return newString;
+            return str.TrimEnd();
         }
     }
 }
