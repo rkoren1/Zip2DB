@@ -15,7 +15,7 @@ namespace Zip2DB.Migrations
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "6.0.9");
+            modelBuilder.HasAnnotation("ProductVersion", "6.0.20");
 
             modelBuilder.Entity("DownloadZIP.Data.ZavezanecEntity", b =>
                 {
@@ -23,7 +23,7 @@ namespace Zip2DB.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("DatumRegistracije")
+                    b.Property<DateTime?>("DatumRegistracije")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Davcna")

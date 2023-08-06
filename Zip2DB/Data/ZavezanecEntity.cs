@@ -8,7 +8,7 @@
         public char ZavezanostZaDDV { get; set; }
         public string Davcna { get; set; }
         public string Maticna { get; set; }
-        public DateTime DatumRegistracije { get; set; }
+        public DateTime? DatumRegistracije { get; set; }
         public string SifraDejavnosti { get; set; }
         public string ImeZavezanca { get; set; }
         public string Naslov { get; set; }
@@ -35,6 +35,8 @@
             {
                 DatumRegistracije = nDate;
             }
+            else
+                DatumRegistracije = null;
 
         }
 

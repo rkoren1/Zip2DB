@@ -19,7 +19,7 @@ namespace Zip2DB.Migrations
                     ZavezanostZaDDV = table.Column<char>(type: "TEXT", nullable: false),
                     Davcna = table.Column<string>(type: "TEXT", nullable: false),
                     Maticna = table.Column<string>(type: "TEXT", nullable: false),
-                    DatumRegistracije = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    DatumRegistracije = table.Column<DateTime>(type: "TEXT", nullable: true),
                     SifraDejavnosti = table.Column<string>(type: "TEXT", nullable: false),
                     ImeZavezanca = table.Column<string>(type: "TEXT", nullable: false),
                     Naslov = table.Column<string>(type: "TEXT", nullable: false),

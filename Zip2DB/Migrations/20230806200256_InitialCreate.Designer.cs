@@ -11,13 +11,13 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Zip2DB.Migrations
 {
     [DbContext(typeof(ZavezanciContext))]
-    [Migration("20230806150938_InitialCreate")]
+    [Migration("20230806200256_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "6.0.9");
+            modelBuilder.HasAnnotation("ProductVersion", "6.0.20");
 
             modelBuilder.Entity("DownloadZIP.Data.ZavezanecEntity", b =>
                 {
@@ -25,7 +25,7 @@ namespace Zip2DB.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("DatumRegistracije")
+                    b.Property<DateTime?>("DatumRegistracije")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Davcna")
