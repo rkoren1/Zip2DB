@@ -1,7 +1,7 @@
 ﻿namespace DownloadZIP.Data
 {
 
-    internal class ZavezanecEntity
+    public class ZavezanecEntity
     {
         public int Id { get; set; }
         public char? Ureditev { get; set; }
