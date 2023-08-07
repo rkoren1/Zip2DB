@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Zip2DB.Migrations
 {
     [DbContext(typeof(ZavezanciContext))]
-    [Migration("20230806200256_InitialCreate")]
+    [Migration("20230807141432_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -41,7 +41,6 @@ namespace Zip2DB.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Maticna")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Naslov")
@@ -52,10 +51,10 @@ namespace Zip2DB.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<char>("Ureditev")
+                    b.Property<char?>("Ureditev")
                         .HasColumnType("TEXT");
 
-                    b.Property<char>("ZavezanostZaDDV")
+                    b.Property<char?>("ZavezanostZaDDV")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");

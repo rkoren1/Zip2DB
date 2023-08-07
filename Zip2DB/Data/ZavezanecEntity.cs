@@ -4,10 +4,10 @@
     internal class ZavezanecEntity
     {
         public int Id { get; set; }
-        public char Ureditev { get; set; }
-        public char ZavezanostZaDDV { get; set; }
+        public char? Ureditev { get; set; }
+        public char? ZavezanostZaDDV { get; set; }
         public string Davcna { get; set; }
-        public string Maticna { get; set; }
+        public string? Maticna { get; set; }
         public DateTime? DatumRegistracije { get; set; }
         public string SifraDejavnosti { get; set; }
         public string ImeZavezanca { get; set; }
@@ -22,10 +22,10 @@
             string sifraDejavnosti, string imeZavezanca, string naslov, string financniUrad)
         {
             Id = id;
-            Ureditev = ureditev;
-            ZavezanostZaDDV = zavezanostZaDDV;
+            Ureditev = CheckForNull(ureditev);
+            ZavezanostZaDDV = CheckForNull(zavezanostZaDDV);
             Davcna = TrimString(davcna);
-            Maticna = TrimString(maticna);
+            Maticna = TrimStringAndCheckForNull(maticna);
             var dateInString = TrimString(datumRegistracije);
             SifraDejavnosti = TrimString(sifraDejavnosti);
             ImeZavezanca = TrimString(imeZavezanca);
@@ -43,6 +43,19 @@
         public string TrimString(string str)
         {
             return str.TrimEnd();
+        }
+        public string? TrimStringAndCheckForNull(string str)
+        {
+            var tmp = str.TrimEnd();
+            if (tmp == "")
+                return null;
+            return tmp;
+        }
+        public char? CheckForNull(char chr)
+        {
+            if (chr == ' ')
+                return null;
+            return chr;
         }
     }
 }
