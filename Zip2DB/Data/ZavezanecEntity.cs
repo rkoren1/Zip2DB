@@ -40,18 +40,18 @@
 
         }
 
-        public string TrimString(string str)
+        private string TrimString(string str)
         {
             return str.TrimEnd();
         }
-        public string? TrimStringAndCheckForNull(string str)
+        private string? TrimStringAndCheckForNull(string str)
         {
             var tmp = str.TrimEnd();
             if (tmp == "")
                 return null;
             return tmp;
         }
-        public char? CheckForNull(char chr)
+        private char? CheckForNull(char chr)
         {
             if (chr == ' ')
                 return null;
